@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Educraft - LAUTECH Aspirant Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #990000;
+            --accent: #FFCC00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --text: #333;
+            --bg: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .theme-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .theme-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-default {
+            background: linear-gradient(135deg, #003366, #990000, #FFCC00);
+        }
+        
+        .theme-green {
+            background: linear-gradient(135deg, #006633, #339966, #99CC66);
+        }
+        
+        .theme-purple {
+            background: linear-gradient(135deg, #663366, #9966CC, #CC99FF);
+        }
+        
+        .theme-blue {
+            background: linear-gradient(135deg, #0066CC, #3399FF, #66CCFF);
+        }
+        
+        main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 140px);
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .faculty-section {
+            margin-bottom: 2rem;
+        }
+        
+        .faculty-title {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faculty-title:hover {
+            background-color: var(--secondary);
+        }
+        
+        .courses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .course-item {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .course-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .result-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+        }
+        
+        .eligibility-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .subject-group {
+            grid-column: 1 / -1;
+        }
+        
+        .subject-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .eligible-courses {
+            margin-top: 2rem;
+        }
+        
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .course-table th, .course-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .course-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .course-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .eligible {
+            color: green;
+            font-weight: bold;
+        }
+        
+        .not-eligible {
+            color: var(--secondary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        
+        .history-section {
+            text-align: justify;
+        }
+        
+        .history-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+            }
+            
+            nav li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+                border-radius: 4px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .calculator-form, .eligibility-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .subject-inputs {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .theme-selector {
+                position: static;
+                margin-top: 10px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .subject-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-table {
+                font-size: 0.9rem;
+            }
+            
+            .course-table th, .course-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Ibrahim Educraft</h1>
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="calculator">Aggregate Calculator</a></li>
+                        <li><a href="#" class="nav-link" data-page="eligibility">Eligibility Checker</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="theme-selector">
+                <div class="theme-btn theme-default" data-theme="default"></div>
+                <div class="theme-btn theme-green" data-theme="green"></div>
+                <div class="theme-btn theme-purple" data-theme="purple"></div>
+                <div class="theme-btn theme-blue" data-theme="blue"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="card">
+                <h2>About LAUTECH</h2>
+                <div class="history-section">
+                    <p>Ladoke Akintola University of Technology (LAUTECH), Ogbomoso, is a public university established in 1990. Named after Chief Ladoke Akintola, the former premier of the Western Region of Nigeria, the institution has grown to become one of Nigeria's leading universities of technology.</p>
+                    <p>The university started with just 436 students in 1990 and has expanded to accommodate over 30,000 students across various faculties. LAUTECH is renowned for its excellence in engineering, technology, and health sciences education.</p>
+                    <p>LAUTECH's mission is to advance the frontiers of learning, break new grounds in teaching and research, and produce graduates who are academically sound and practically oriented.</p>
+                    <p>It hols the prestige of the Best State University of Technology in Nigeria, the school was ranked aeound the 1501+ range in the recent TIMES rating. It works to actualise its motto "Enhancing Self Reliance"</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Faculties and Courses</h2>
+                
+                <!-- Faculty of Agricultural Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Agricultural Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Agricultural Economics</div>
+                        <div class="course-item">Agricultural Extension and Rural Development</div>
+                        <div class="course-item">Animal Nutrition and Biotechnology</div>
+                        <div class="course-item">Animal Production and Health</div>
+                        <div class="course-item">Crop and Environmental Protection</div>
+                        <div class="course-item">Crop Production and Soil Science</div>
+                        <div class="course-item">Fisheries and Aquaculture</div>
+                        <div class="course-item">Forest Resources Management</div>
+                        <div class="course-item">Wildlife and Ecotourism Management</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Basic Medical Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Basic Medical Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Anatomy</div>
+                        <div class="course-item">Biochemistry</div>
+                        <div class="course-item">Medical Laboratory Science</div>
+                        <div class="course-item">Physiology</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Basic Clinical Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Basic Clinical Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Chemical Pathology</div>
+                        <div class="course-item">Morbid Anatomy</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Clinical Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Clinical Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Medicine and Surgery</div>
+                        <div class="course-item">Paediatrics</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Nursing Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Nursing Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Nursing</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Computing and Informatics -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Computing and Informatics</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Computer Science</div>
+                        <div class="course-item">Cyber Security Science</div>
+                        <div class="course-item">Information System</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Environmental Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Environmental Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Architecture</div>
+                        <div class="course-item">Building</div>
+                        <div class="course-item">Estate Management</div>
+                        <div class="course-item">Fine and Applied Arts</div>
+                        <div class="course-item">Surveying and Geoinformatics</div>
+                        <div class="course-item">Urban and Regional Planning</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Engineering and Technology -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Engineering and Technology</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Agricultural Engineering</div>
+                        <div class="course-item">Chemical Engineering</div>
+                        <div class="course-item">Civil Engineering</div>
+                        <div class="course-item">Computer Engineering</div>
+                        <div class="course-item">Electronics and Electrical Engineering</div>
+                        <div class="course-item">Food Engineering</div>
+                        <div class="course-item">Mechanical Engineering</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Food and Consumer Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Food and Consumer Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Consumer and Home Economics</div>
+                        <div class="course-item">Food Science</div>
+                        <div class="course-item">Nutrition and Dietetics</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Pure and Applied Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Pure and Applied Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Earth Science</div>
+                        <div class="course-item">Pure and Applied Biology</div>
+                        <div class="course-item">Pure and Applied Chemistry</div>
+                        <div class="course-item">Pure and Applied Mathematics</div>
+                        <div class="course-item">Pure and Applied Physics</div>
+                        <div class="course-item">Science Laboratory Technology</div>
+                        <div class="course-item">Statistics</div>
+                    </div>
+                </div>
+
+                <!-- Faculty of Management Sciences -->
+                <div class="faculty-section">
+                    <div class="faculty-title">
+                        <h3>Faculty of Management Sciences</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">Accounting</div>
+                        <div class="course-item">Business Management</div>
+                        <div class="course-item">Economics</div>
+                        <div class="course-item">Hospitality and Tourism Management</div>
+                        <div class="course-item">Marketing</div>
+                        <div class="course-item">Transport Management</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aggregate Calculator Page -->
+        <section id="calculator" class="page">
+            <div class="card">
+                <h2>LAUTECH Aggregate Score Calculator</h2>
+                <p>Calculate your admission aggregate score using the 80:20 ratio (UTME:O'level)</p>
+                
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="jamb-score">UTME Score</label>
+                        <input type="number" id="jamb-score" min="0" max="400" placeholder="Enter your JAMB score">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>O'Level Grades (Select 5 relevant subjects)</label>
+                        <div class="subject-inputs">
+                            <select class="subject-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="subject-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="subject-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="subject-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="subject-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calculate-btn">Calculate Aggregate Score</button>
+                
+                <div id="result" class="result-box">
+                    <h3>Your Aggregate Score</h3>
+                    <p id="aggregate-score">0.00</p>
+                    <p id="calculation-details"></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>How to Calculate LAUTECH Aggregate Score</h3>
+                <p>To be eligible for admission, your aggregate score is calculated using a 80:20 ratio of your UTME score and O'level grades respectively. The ratio division was used for the 2024/2025 Admission</p>
+                
+                <h4>Step-by-Step Guide:</h4>
+                <ol>
+                    <li><strong>UTME Score (80%)</strong><br>
+                    Formula: (Your JAMB Score / 400) × 80</li>
+                    <li><strong>O'Level Grades (20%)</strong><br>
+                    LAUTECH uses five relevant subjects to determine your O'level contribution.<br>
+                    Each grade is assigned a point as follows:
+                    <ul>
+                        <li>A1 = 6 points</li>
+                        <li>B2 = 5 points</li>
+                        <li>B3 = 4 points</li>
+                        <li>C4 = 3 points</li>
+                        <li>C5 = 2 points</li>
+                        <li>C6 = 1 point</li>
+                    </ul>
+                    Total O'level score is calculated over 30, then converted to 20%.</li>
+                </ol>
+                
+                <h4>Example Calculation (For Mr. Ibrahim):</h4>
+                <p>Let's assume Mr. Ibrahim has:</p>
+                <ul>
+                    <li>UTME Score: 400</li>
+                    <li>O'level Grades: A1 in 5 relevant subjects</li>
+                </ul>
+                <p><strong>UTME Contribution:</strong><br>
+                400 ÷ 400 × 80 = 80</p>
+                <p><strong>O'level Contribution:</strong><br>
+                A1 = 6 points × 5 subjects = 30/30*20 = 20</p>
+                <p><strong>Total Aggregate Score</strong> = 80 + 20 = 100</p>
+                <p>This is Mr. Ibrahim's aggregate score which will be used to determine his eligibility for his chosen course.</p>
+            </div>
+        </section>
+
+        <!-- Eligibility Checker Page -->
+        <section id="eligibility" class="page">
+            <div class="card">
+                <h2>Eligibility Checker</h2>
+                <p>Check which courses you're eligible for based on your aggregate score and catchment status</p>
+                
+                <div class="eligibility-form">
+                    <div class="form-group">
+                        <label for="eligibility-jamb">UTME Score</label>
+                        <input type="number" id="eligibility-jamb" min="0" max="400" placeholder="Enter your JAMB score">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="aggregate-input">Aggregate Score (from calculator)</label>
+                        <input type="number" id="aggregate-input" min="0" max="100" step="0.01" placeholder="Enter your aggregate score">
+                    </div>
+                    
+                    <div class="form-group subject-group">
+                        <label>O'Level Grades (Select 5 relevant subjects)</label>
+                        <div class="subject-inputs">
+                            <select class="eligibility-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="eligibility-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="eligibility-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="eligibility-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                            <select class="eligibility-grade">
+                                <option value="">Select Grade</option>
+                                <option value="6">A1 (6 points)</option>
+                                <option value="5">B2 (5 points)</option>
+                                <option value="4">B3 (4 points)</option>
+                                <option value="3">C4 (3 points)</option>
+                                <option value="2">C5 (2 points)</option>
+                                <option value="1">C6 (1 point)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="catchment">Are you from a catchment area?</label>
+                        <select id="catchment">
+                            <option value="no">No</option>
+                            <option value="yes">Yes (South West State)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="check-eligibility">Check Eligible Courses</button>
+            </div>
+            
+            <div class="eligible-courses card">
+                <h3>Eligible Courses</h3>
+                <p id="eligibility-message">Enter your details above to see which courses you're eligible for</p>
+                <p>N.B. : Please note that this if for educational purpose and was curated from the 2024/2025 Admission Process</p>
+                <table class="course-table" id="eligible-courses-table">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Merit Cut-off</th>
+                            <th>Catchment Cut-off</th>
+                            <th>Your Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eligible-courses-body">
+                        <!-- Eligible courses will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Proudly Sponsored by <a href="https://wa.me/+234 902 896 9998" target="_blank">Ibrahim Educraft</a> and Designed by <a href="https://www.eimc.vercel.app" target="_blank"> Envilinks Interconnectivity Media Concept</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const mobileMenuBtn = document.getElementById('mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Update active nav link
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target page
+                    pages.forEach(page => page.classList.remove('active'));
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Close mobile menu after navigation
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Faculty sections toggle
+            const facultyTitles = document.querySelectorAll('.faculty-title');
+            facultyTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    const coursesList = this.nextElementSibling;
+                    coursesList.style.display = coursesList.style.display === 'none' ? 'grid' : 'none';
+                    this.querySelector('span').textContent = coursesList.style.display === 'none' ? '+' : '-';
+                });
+                
+                // Initially hide all course lists
+                title.nextElementSibling.style.display = 'none';
+            });
+            
+            // Theme Selector
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            themeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    changeTheme(theme);
+                });
+            });
+            
+            function changeTheme(theme) {
+                const root = document.documentElement;
+                
+                switch(theme) {
+                    case 'green':
+                        root.style.setProperty('--primary', '#006633');
+                        root.style.setProperty('--secondary', '#339966');
+                        root.style.setProperty('--accent', '#99CC66');
+                        break;
+                    case 'purple':
+                        root.style.setProperty('--primary', '#663366');
+                        root.style.setProperty('--secondary', '#9966CC');
+                        root.style.setProperty('--accent', '#CC99FF');
+                        break;
+                    case 'blue':
+                        root.style.setProperty('--primary', '#0066CC');
+                        root.style.setProperty('--secondary', '#3399FF');
+                        root.style.setProperty('--accent', '#66CCFF');
+                        break;
+                    default:
+                        root.style.setProperty('--primary', '#003366');
+                        root.style.setProperty('--secondary', '#990000');
+                        root.style.setProperty('--accent', '#FFCC00');
+                }
+            }
+            
+            // Aggregate Calculator
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resultBox = document.getElementById('result');
+            
+            calculateBtn.addEventListener('click', function() {
+                const jambScore = parseInt(document.getElementById('jamb-score').value) || 0;
+                const subjectGrades = document.querySelectorAll('.subject-grade');
+                
+                let totalPoints = 0;
+                let validSubjects = 0;
+                
+                subjectGrades.forEach(select => {
+                    if (select.value) {
+                        totalPoints += parseInt(select.value);
+                        validSubjects++;
+                    }
+                });
+                
+                if (jambScore < 0 || jambScore > 400) {
+                    alert('Please enter a valid JAMB score between 0 and 400');
+                    return;
+                }
+                
+                if (validSubjects < 5) {
+                    alert('Please select grades for all 5 subjects');
+                    return;
+                }
+                
+                // Calculate UTME contribution (80%)
+                const utmeContribution = (jambScore / 400) * 80;
+                
+                // Calculate O'level contribution (20%)
+                const olevelContribution = (totalPoints / 30) * 20;
+                
+                // Calculate aggregate score
+                const aggregateScore = utmeContribution + olevelContribution;
+                
+                // Display results
+                document.getElementById('aggregate-score').textContent = aggregateScore.toFixed(2);
+                document.getElementById('calculation-details').innerHTML = `
+                    <strong>Breakdown:</strong><br>
+                    UTME Contribution: ${utmeContribution.toFixed(2)} (${jambScore}/400 × 80)<br>
+                    O'Level Contribution: ${olevelContribution.toFixed(2)} (${totalPoints}/30 × 20)<br>
+                    Total: ${aggregateScore.toFixed(2)}
+                `;
+                
+                resultBox.classList.add('show');
+            });
+            
+            // Eligibility Checker
+            const checkEligibilityBtn = document.getElementById('check-eligibility');
+            const eligibleCoursesBody = document.getElementById('eligible-courses-body');
+            const eligibilityMessage = document.getElementById('eligibility-message');
+            
+            checkEligibilityBtn.addEventListener('click', function() {
+                const jambScore = parseInt(document.getElementById('eligibility-jamb').value) || 0;
+                const aggregateScore = parseFloat(document.getElementById('aggregate-input').value) || 0;
+                const catchment = document.getElementById('catchment').value;
+                const eligibilityGrades = document.querySelectorAll('.eligibility-grade');
+                
+                let totalPoints = 0;
+                let validSubjects = 0;
+                
+                eligibilityGrades.forEach(select => {
+                    if (select.value) {
+                        totalPoints += parseInt(select.value);
+                        validSubjects++;
+                    }
+                });
+                
+                if (jambScore < 0 || jambScore > 400) {
+                    alert('Please enter a valid JAMB score between 0 and 400');
+                    return;
+                }
+                
+                if (aggregateScore <= 0 || aggregateScore > 100) {
+                    alert('Please enter a valid aggregate score between 0 and 100');
+                    return;
+                }
+                
+                if (validSubjects < 5) {
+                    alert('Please select grades for all 5 subjects');
+                    return;
+                }
+                
+                // Calculate aggregate score if not provided
+                let calculatedAggregate = aggregateScore;
+                if (aggregateScore === 0) {
+                    const utmeContribution = (jambScore / 400) * 80;
+                    const olevelContribution = (totalPoints / 30) * 20;
+                    calculatedAggregate = utmeContribution + olevelContribution;
+                    document.getElementById('aggregate-input').value = calculatedAggregate.toFixed(2);
+                }
+                
+                // Course data from the provided images
+                const courses = [
+                    { name: "Accounting", merit: 56.2, catchment: 46.0 },
+                    { name: "Agricultural Economics", merit: 39.1, catchment: 39.1 },
+                    { name: "Agricultural Engineering", merit: 51.5, catchment: 46.6 },
+                    { name: "Agricultural Extension and Rural Development", merit: 40.3, catchment: 40.3 },
+                    { name: "Anatomy", merit: 56.3, catchment: 51.1 },
+                    { name: "Animal Nutrition and Biotechnology", merit: 41.8, catchment: 41.8 },
+                    { name: "Animal Production and Health", merit: 48.8, catchment: 41.1 },
+                    { name: "Architecture", merit: 61.6, catchment: 57.2 },
+                    { name: "Biochemistry", merit: 56.3, catchment: 48.6 },
+                    { name: "Building", merit: 55.9, catchment: 51.5 },
+                    { name: "Business Management", merit: 57.7, catchment: 48.7 },
+                    { name: "Chemical Engineering", merit: 55.7, catchment: 49.5 },
+                    { name: "Civil Engineering", merit: 63.7, catchment: 50.1 },
+                    { name: "Computer Engineering", merit: 59.5, catchment: 53.5 },
+                    { name: "Computer Science", merit: 63.5, catchment: 53.7 },
+                    { name: "Consumer and Home Economics", merit: 43.6, catchment: 43.6 },
+                    { name: "Crop and Environmental Protection", merit: 45.6, catchment: 45.6 },
+                    { name: "Crop Production and Soil Science", merit: 40.3, catchment: 40.3 },
+                    { name: "Cyber Security Science", merit: 60.7, catchment: 48.4 },
+                    { name: "Earth Science", merit: 48.0, catchment: 40.4 },
+                    { name: "Economics", merit: 59.1, catchment: 44.0 },
+                    { name: "Electronics and Electrical Engineering", merit: 57.3, catchment: 52.1 },
+                    { name: "English and Literary Studies", merit: 56.7, catchment: 46.9 },
+                    { name: "Estate Management", merit: 44.8, catchment: 42.7 },
+                    { name: "Fine and Applied Arts", merit: 52.5, catchment: 40.7 },
+                    { name: "Fisheries and Aquaculture", merit: 39.7, catchment: 39.7 },
+                    { name: "Food Engineering", merit: 45.9, catchment: 42.6 },
+                    { name: "Food Science", merit: 54.3, catchment: 44.9 },
+                    { name: "Forest Resources Management", merit: 45.1, catchment: 45.1 },
+                    { name: "History", merit: 42.3, catchment: 42.3 },
+                    { name: "Hospitality and Tourism Management", merit: 47.9, catchment: 43.9 },
+                    { name: "Information System", merit: 52.3, catchment: 46.0 },
+                    { name: "Library and Information Science", merit: 48.3, catchment: 40.0 },
+                    { name: "Linguistics and Nigerian Language (Yoruba)", merit: 54.5, catchment: 47.2 },
+                    { name: "Marketing", merit: 46.9, catchment: 42.9 },
+                    { name: "Mass Communication", merit: 62.7, catchment: 51.6 },
+                    { name: "Mechanical Engineering", merit: 60.8, catchment: 50.8 },
+                    { name: "Medical Laboratory Science", merit: 68.0, catchment: 64.7 },
+                    { name: "Medicine and Surgery", merit: 79.8, catchment: 75.7 },
+                    { name: "Nursing", merit: 72.1, catchment: 68.0 },
+                    { name: "Nutrition and Dietetics", merit: 59.1, catchment: 50.4 },
+                    { name: "Philosophy", merit: 50.1, catchment: 40.3 },
+                    { name: "Physiology", merit: 56.7, catchment: 48.8 },
+                    { name: "Political Science", merit: 58.1, catchment: 51.5 },
+                    { name: "Psychology", merit: 48.8, catchment: 41.8 },
+                    { name: "Pure and Applied Biology", merit: 54.5, catchment: 51.2 },
+                    { name: "Pure and Applied Chemistry", merit: 49.7, catchment: 39.7 },
+                    { name: "Pure and Applied Mathematics", merit: 41.8, catchment: 41.8 },
+                    { name: "Pure and Applied Physics", merit: 46.3, catchment: 39.7 },
+                    { name: "Science Laboratory Technology", merit: 56.9, catchment: 45.2 },
+                    { name: "Sociology", merit: 55.7, catchment: 48.7 },
+                    { name: "Statistics", merit: 48.9, catchment: 38.9 },
+                    { name: "Surveying and Geoinformatics", merit: 58.1, catchment: 47.7 },
+                    { name: "Theatre Arts", merit: 52.5, catchment: 43.7 },
+                    { name: "Transport Management", merit: 46.0, catchment: 39.7 },
+                    { name: "Urban and Regional Planning", merit: 49.2, catchment: 42.8 },
+                    { name: "Wildlife and Ecotourism Management", merit: 44.5, catchment: 44.5 }
+                ];
+                
+                // Clear previous results
+                eligibleCoursesBody.innerHTML = '';
+                
+                // Check eligibility for each course
+                let eligibleCount = 0;
+                
+                courses.forEach(course => {
+                    const cutoff = catchment === 'yes' ? course.catchment : course.merit;
+                    const isEligible = calculatedAggregate >= cutoff;
+                    
+                    if (isEligible) {
+                        eligibleCount++;
+                    }
+                    
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${course.name}</td>
+                        <td>${course.merit}</td>
+                        <td>${course.catchment}</td>
+                        <td class="${isEligible ? 'eligible' : 'not-eligible'}">
+                            ${isEligible ? 'Eligible' : 'Not Eligible'}
+                        </td>
+                    `;
+                    eligibleCoursesBody.appendChild(row);
+                });
+                
+                // Update message
+                if (eligibleCount > 0) {
+                    eligibilityMessage.textContent = `You are eligible for ${eligibleCount} out of ${courses.length} courses based on your aggregate score of ${calculatedAggregate.toFixed(2)}`;
+                } else {
+                    eligibilityMessage.textContent = `You are not eligible for any courses with your current aggregate score of ${calculatedAggregate.toFixed(2)}. Consider improving your score.`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
